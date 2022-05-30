@@ -1,0 +1,24 @@
+version: "2"
+services:
+  server1:
+    build: server
+    ports:
+    - "3000:3000"
+    volumes:
+    - "./shared_volume:/shared_volume"
+    restart: always
+    environment:
+      port: 3000
+      name: 'Server1'
+    #network_mode: host
+  server2:
+    build: server
+    ports:
+    - "8000:8000"
+    volumes:
+    - "./shared_volume:/shared_volume"
+    environment:
+      port: 8000
+      name: 'Server2'
+    #network_mode: host
+  
